@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - QCanvas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-gradient-start: #0a0e1a;
+            --bg-gradient-end: #111827;
+            --surface-color: rgba(26, 34, 52, 0.75);
+            --surface-border: rgba(255, 255, 255, 0.08);
+            --primary-accent: #6366f1;
+            --primary-accent-light: #818cf8;
+            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            --text-main: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            --card-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+            --badge-bg: rgba(99, 102, 241, 0.15);
+            --badge-border: rgba(99, 102, 241, 0.3);
+            --nav-active: rgba(99, 102, 241, 0.2);
+            --code-bg: rgba(0, 0, 0, 0.35);
+        }
+
+        [data-theme="light"] {
+            --bg-gradient-start: #f8fafc;
+            --bg-gradient-end: #f1f5f9;
+            --surface-color: rgba(255, 255, 255, 0.85);
+            --surface-border: rgba(0, 0, 0, 0.06);
+            --primary-accent: #4f46e5;
+            --primary-accent-light: #6366f1;
+            --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            --text-main: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --card-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.07);
+            --badge-bg: rgba(79, 70, 229, 0.08);
+            --badge-border: rgba(79, 70, 229, 0.2);
+            --nav-active: rgba(79, 70, 229, 0.12);
+            --code-bg: rgba(241, 245, 249, 0.9);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.25s ease, border-color 0.25s ease, color 0.2s ease;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            color: var(--text-main);
+            min-height: 100vh;
+            line-height: 1.7;
+            padding: 0 20px 80px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .ambient-glow {
+            position: fixed;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, rgba(168, 85, 247, 0.05) 50%, transparent 80%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header & Navigation */
+        header {
+            padding: 48px 0 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--surface-border);
+            margin-bottom: 36px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .logo-box {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 16px -4px rgba(99, 102, 241, 0.4);
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-text h1 {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-text p {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theme-toggle {
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            color: var(--text-main);
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            backdrop-filter: blur(12px);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--primary-accent-light);
+            transform: translateY(-1px);
+        }
+
+        /* Nav Pills */
+        .nav-pills {
+            display: flex;
+            gap: 8px;
+            background: var(--surface-color);
+            padding: 6px;
+            border-radius: 12px;
+            border: 1px solid var(--surface-border);
+            margin-bottom: 32px;
+            backdrop-filter: blur(16px);
+        }
+
+        .nav-link {
+            flex: 1;
+            text-align: center;
+            padding: 10px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .nav-link.active {
+            background: var(--nav-active);
+            color: var(--primary-accent-light);
+            box-shadow: inset 0 0 0 1px var(--badge-border);
+        }
+
+        /* Content Card */
+        .content-card {
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--card-shadow);
+            backdrop-filter: blur(20px);
+        }
+
+        .doc-header {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--surface-border);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--badge-bg);
+            border: 1px solid var(--badge-border);
+            color: var(--primary-accent-light);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .doc-title {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            margin-bottom: 10px;
+        }
+
+        .meta-info {
+            font-size: 13px;
+            color: var(--text-muted);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .meta-info span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 36px;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.4px;
+            margin-bottom: 14px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2 .section-num {
+            font-size: 13px;
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--badge-bg);
+            color: var(--primary-accent-light);
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            font-size: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 16px;
+        }
+
+        li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        li::before {
+            content: "•";
+            position: absolute;
+            left: 8px;
+            color: var(--primary-accent-light);
+            font-size: 18px;
+            line-height: 1.4;
+        }
+
+        .highlight-box {
+            background: var(--badge-bg);
+            border: 1px solid var(--badge-border);
+            border-radius: 14px;
+            padding: 18px 22px;
+            margin: 20px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 18px 0 24px;
+            border-radius: 12px;
+            border: 1px solid var(--surface-border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        th {
+            background: var(--badge-bg);
+            color: var(--text-main);
+            padding: 12px 16px;
+            font-weight: 600;
+            border-bottom: 1px solid var(--surface-border);
+        }
+
+        td {
+            padding: 12px 16px;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--surface-border);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .code-inline {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 5px;
+            font-size: 13px;
+            color: var(--primary-accent-light);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 48px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        footer a {
+            color: var(--primary-accent-light);
+            text-decoration: none;
+        }
+
+        @media (max-width: 640px) {
+            .content-card {
+                padding: 24px 20px;
+            }
+            .doc-title {
+                font-size: 26px;
+            }
+            header {
+                padding: 28px 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-glow"></div>
+
+    <div class="container">
+        <header>
+            <a href="privacy-policy.html" class="brand">
+                <div class="logo-box">Q</div>
+                <div class="brand-text">
+                    <h1>QCanvas</h1>
+                    <p>By Team Vesper</p>
+                </div>
+            </a>
+            <div class="controls">
+                <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+                    <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <nav class="nav-pills">
+            <a href="privacy-policy.html" class="nav-link active">Privacy Policy</a>
+            <a href="terms-and-conditions.html" class="nav-link">Terms & Conditions</a>
+        </nav>
+
+        <main class="content-card">
+            <div class="doc-header">
+                <div class="badge">Legal Document</div>
+                <h1 class="doc-title">Privacy Policy</h1>
+                <div class="meta-info">
+                    <span><strong>Effective Date:</strong> August 29, 2026</span>
+                    <span><strong>Application:</strong> QCanvas (Android & iOS)</span>
+                    <span><strong>Package ID:</strong> <span class="code-inline">com.teamvesper.qcanvas</span></span>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <p>🔒 <strong>Privacy First:</strong> QCanvas operates 100% locally on your device. We do NOT collect, transmit, sell, or store your personal data, scanned codes, or custom QR designs on external servers.</p>
+            </div>
+
+            <section>
+                <h2><span class="section-num">01</span> Introduction</h2>
+                <p>Welcome to <strong>QCanvas</strong> ("the App"), developed and maintained by <strong>Team Vesper</strong> ("we", "us", or "our"). We are deeply committed to respecting and safeguarding your personal privacy.</p>
+                <p>This Privacy Policy explains how our application operates, what device permissions we require to perform its core functions, and how your data is treated when you use QCanvas on iOS and Android devices.</p>
+            </section>
+
+            <section>
+                <h2><span class="section-num">02</span> Data Collection & Storage</h2>
+                <p><strong>We do not collect personally identifiable information (PII).</strong></p>
+                <ul>
+                    <li><strong>No Account Required:</strong> You do not need to register an account, provide an email address, or log in to use QCanvas.</li>
+                    <li><strong>Local Data Processing:</strong> All QR code generation, styling, customization, and barcode decoding calculations take place entirely within your device's local memory.</li>
+                    <li><strong>On-Device Storage:</strong> Any templates, favorites, scan history, or settings saved within the App remain exclusively in your device's secure local sandbox storage.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2><span class="section-num">03</span> Device Permissions We Use</h2>
+                <p>To provide standard QR generation, customization, and scanning capabilities, QCanvas requests the following system permissions when triggered by you:</p>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Permission</th>
+                                <th>Platform</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Camera</strong></td>
+                                <td>iOS & Android</td>
+                                <td>Used strictly in real-time to scan and decode QR codes and barcodes. Camera frames are never recorded or sent off-device.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Photo Library / Storage</strong></td>
+                                <td>iOS & Android</td>
+                                <td>Used only when you choose to import an image to scan from your gallery or save an exported QR code design (PNG, JPG, SVG, PDF) to your photos.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Vibration / Haptics</strong></td>
+                                <td>Android & iOS</td>
+                                <td>Used to provide instant haptic tactile feedback upon successfully scanning a QR code.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section>
+                <h2><span class="section-num">04</span> Third-Party Services</h2>
+                <p>QCanvas is designed to function as an offline-first tool. We do not integrate third-party ad networks, data brokers, or user profiling trackers.</p>
+                <p>When you scan a QR code that contains a web URL and choose to open it, your default web browser handles the destination URL according to that website's own privacy policy and terms.</p>
+            </section>
+
+            <section>
+                <h2><span class="section-num">05</span> Data Retention & Deletion</h2>
+                <p>Because all data generated inside QCanvas is stored locally on your device:</p>
+                <ul>
+                    <li>You can clear your scan history and saved designs at any time from within the App settings.</li>
+                    <li>Uninstalling the App or clearing application data via your device settings permanently removes all locally stored QR codes, history, and cache.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2><span class="section-num">06</span> Children’s Privacy</h2>
+                <p>Our App is suitable for general audiences and does not knowingly collect or solicit any personal information from children under the age of 13 (or under 16 in the European Union) in compliance with COPPA and GDPR regulations.</p>
+            </section>
+
+            <section>
+                <h2><span class="section-num">07</span> Security</h2>
+                <p>We leverage native iOS and Android security sandboxing to ensure your locally generated QR designs and scans are isolated from unauthorized applications.</p>
+            </section>
+
+            <section>
+                <h2><span class="section-num">08</span> Updates to This Policy</h2>
+                <p>We may update this Privacy Policy periodically. Any modifications will be posted here with an updated "Effective Date". Continued use of the App following any changes constitutes acceptance of the updated policy.</p>
+            </section>
+
+            <section>
+                <h2><span class="section-num">09</span> Contact Us</h2>
+                <p>If you have any questions, feedback, or concerns regarding this Privacy Policy, please contact us at:</p>
+                <div class="highlight-box">
+                    <p><strong>Team Vesper</strong><br>
+                    Developer & Publisher of QCanvas<br>
+                    Email: <a href="mailto:contact@teamvesper.com" style="color: var(--primary-accent-light); font-weight:600;">contact@teamvesper.com</a></p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2026 Team Vesper. All rights reserved. • <a href="privacy-policy.html">Privacy Policy</a> • <a href="terms-and-conditions.html">Terms & Conditions</a></p>
+        </footer>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            if (theme === 'light') {
+                themeIcon.innerHTML = `
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                `;
+            } else {
+                themeIcon.innerHTML = `
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                `;
+            }
+        }
+
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        setTheme(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+            setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+        });
+    </script>
+</body>
+</html>
